@@ -17,7 +17,7 @@ gem 'puma', '~> 3.11'
 gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers'
 gem 'will_paginate'
-gem 'jwt'
+gem 'knock'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

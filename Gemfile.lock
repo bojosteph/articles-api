@@ -91,7 +91,11 @@ GEM
     jaro_winkler (1.5.3)
     json (2.2.0)
     jsonapi-renderer (0.2.2)
-    jwt (2.2.1)
+    jwt (1.5.6)
+    knock (2.1.1)
+      bcrypt (~> 3.1)
+      jwt (~> 1.5)
+      rails (>= 4.2)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.1.5)
@@ -237,7 +241,7 @@ DEPENDENCIES
   byebug
   codeclimate-test-reporter (~> 1.0)
   faker
-  jwt
+  knock
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
