@@ -9,7 +9,7 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 export const registerUser = (userData, history) => dispatch => {
   const request = {"user": userData};  
   axios
-    .post("api/v1/users", request)
+    .post("api/users", request)
     .then(res => history.push("/login"))
     .catch(err =>
       dispatch({
@@ -20,20 +20,19 @@ export const registerUser = (userData, history) => dispatch => {
 };
 
 // Login - get user token
-const userUrl = 'http://localhost:3001/api/v1/tokens'    
+const userUrl = 'http://localhost:3001/api/user_token'    
 
 export const loginUser = userData =>  dispatch => {
-  const requestLogin = {"user": userData};
+  const requestLogin = {"auth": userData};
   axios
       .post(`${userUrl}.json`, requestLogin)
       .then(res => {
-        // debugger
       // const { token } = res.data.jwt;
-      localStorage.setItem("jwtToken", res.data.token);
+      localStorage.setItem("jwtToken", res.data.jwt);
       // Set token to Auth header
-      setAuthToken(res.data.token);
+      setAuthToken(res.data.jwt);
       // Decode token to get user data
-      const decoded = jwt_decode(res.data.token);
+      const decoded = jwt_decode(res.data.jwt);
       // Set current user
       dispatch(setCurrentUser(decoded));
       })

@@ -10,7 +10,7 @@ export class Navbar extends Component {
           <Link to="/" style={{fontFamil: "monospace"}}
           className="col s5 brand-logo center black-text">
             <i className="material-icons">code</i>
-             RAILS REACT BAKESHOPPE
+             RAILS REACT ARTICLES APP
           </Link>
          </div>
         </nav>
