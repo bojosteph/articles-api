@@ -1,9 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is A full stack application using Rails backend with React and Redux frontend for creating articles .
 
-Things you may want to cover:
+:
 
 * Ruby version
 
