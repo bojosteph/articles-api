@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addArticle } from '../../actions/index';
 
 class ArticleAdd extends Component {
-  state = { title: '', content: ''};     
+  state = { title: '', content: '', user_id: this.props.auth.user_id};     
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -11,6 +11,7 @@ class ArticleAdd extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    
     this.props.addArticle(this.state)
   }
 
@@ -39,9 +40,15 @@ class ArticleAdd extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  auth: state.auth,
+  user: state.user,
+  user_id: state.user_id
+})
+
 const mapDispatchToProps = { addArticle };
 
-export default connect(null, mapDispatchToProps)(ArticleAdd);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleAdd);
 
 
 

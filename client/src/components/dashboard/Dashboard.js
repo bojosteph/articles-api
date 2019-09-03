@@ -11,11 +11,11 @@ class Dashboard extends Component {
     this.props.logoutUser();
   };
 render() {
-    const { user } = this.props.auth;
+    // const { user } = this.props.auth;
 return (
   <Fragment>
         <ArticleApp />
-    </Fragment>
+  </Fragment>
     );
   }
 }

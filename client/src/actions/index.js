@@ -28,9 +28,10 @@ export const getArticles = () => {
   }
 };
 
-export const addArticle = ({ title, content }) => {
+export const addArticle = ({ title, content, user_id }) => {
   return (dispatch) => {
-    return axios({ method: 'post', url:`${apiUrl}.json`, headers: {'Authorization': token }, data: {title, content}})
+    debugger
+    return axios({ method: 'post', url:`${apiUrl}.json`, headers: {'Authorization': token }, data: {title, content, user_id}})
     .then(response => {
       let data = response.data;
       dispatch({

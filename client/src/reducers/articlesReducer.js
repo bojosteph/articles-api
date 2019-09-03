@@ -5,13 +5,14 @@ import {
   REPLACE_ARTICLE
 } from '../actions/types'
 
-const initialState = { articles: [] }
+const initialState = { articles: [], user: {} }
 
 export default function articlesReducer(state = initialState, action) {
   switch(action.type) { 
     case RECEIVE_ARTICLES:
       return action.payload;
     case ADD_ARTICLE:
+      if (state.user)
       return [action.payload, ...state];
     case REMOVE_ARTICLE:
       return state.filter(article => article.id !== action.payload.id);

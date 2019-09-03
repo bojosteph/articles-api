@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import '../stylesheets/App.css';
-import Home from './Home';
+// import Home from './Home';
 
 import ArticleList from './ArticleList';
 import ArticleInfo from './ArticleInfo';
@@ -11,7 +11,7 @@ import ArticleEdit from './ArticleEdit';
 import {Router, Route, Switch} from 'react-router-dom'
 import Navbar from '../../components/layout/Navbar';
 import history from '../../history';
-import Dashboard from '../../components/dashboard/Dashboard';
+
 
 
 class ArticleApp extends Component {
@@ -30,7 +30,7 @@ class ArticleApp extends Component {
 
 const Main = () => (
   <Switch>    
-    <Route exact path="/" component={Dashboard} />        
+     
     <Route exact path="/articles" component={ArticleList} />
     <Route exact path="/articles/new" component={ArticleAdd} />
     <Route exact path="/articles/:id" component={ArticleInfo} />
