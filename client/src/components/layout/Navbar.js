@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logoutUser } from "../../actions/authActions";
 
-export class Navbar extends Component {
+class Navbar extends Component {
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
   render() {
-    return (
-      <div className="navbar-fixed">
-        <nav className="z-depth-0">
-          <div className="nav-wrapper white">
-          <Link to="/" style={{fontFamil: "monospace"}}
-          className="col s5 brand-logo center black-text">
-            <i className="material-icons">code</i>
-             RAILS REACT ARTICLES APP
-          </Link>
-         </div>
-        </nav>
-      </div>
-    );
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <ul className="navbar-nav mr-auto">
+      <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/">Home</NavLink></li>
+      <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/articles">Articles</NavLink></li>
+      <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/articles/new">Add Articles</NavLink></li>
+      <li><button className="waves-effect waves-light btn"  onClick={this.onLogoutClick}>Logout</button></li>
+    </ul>
+  </nav>
+  )
   }
 }
 
-export default Navbar
+export default connect(null, {logoutUser})(Navbar);
+                                                
+             
