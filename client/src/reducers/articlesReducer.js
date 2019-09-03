@@ -3,7 +3,7 @@ import {
   ADD_ARTICLE,
   REMOVE_ARTICLE,
   REPLACE_ARTICLE
-} from '../actions/types';
+} from '../actions/types'
 
 const initialState = { articles: [] }
 
