@@ -8,6 +8,7 @@ import ArticleList from './ArticleList';
 import ArticleInfo from './ArticleInfo';
 import ArticleAdd from './ArticleAdd';
 import ArticleEdit from './ArticleEdit';
+import Welcome from "../../components/welcome/Welcome";
 import {Router, Route, Switch} from 'react-router-dom'
 import Navbar from '../../components/layout/Navbar';
 import history from '../../history';
@@ -30,7 +31,7 @@ class ArticleApp extends Component {
 
 const Main = () => (
   <Switch>    
-     
+    <Route exact path="/welcome" component={Welcome}/>
     <Route exact path="/articles" component={ArticleList} />
     <Route exact path="/articles/new" component={ArticleAdd} />
     <Route exact path="/articles/:id" component={ArticleInfo} />

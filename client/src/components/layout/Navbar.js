@@ -12,7 +12,7 @@ class Navbar extends Component {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <ul className="navbar-nav mr-auto">
-      <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/">Home</NavLink></li>
+      <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="welcome">Home</NavLink></li>
       <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/articles">Articles</NavLink></li>
       <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/articles/new">Add Articles</NavLink></li>
       <li><button className="waves-effect waves-light btn"  onClick={this.onLogoutClick}>Logout</button></li>

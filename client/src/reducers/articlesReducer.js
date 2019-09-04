@@ -13,7 +13,7 @@ export default function articlesReducer(state = initialState, action) {
       return action.payload;
     case ADD_ARTICLE:
       if (state.user)
-      return [action.payload, ...state];
+      return [action.payload];
     case REMOVE_ARTICLE:
       return state.filter(article => article.id !== action.payload.id);
     case REPLACE_ARTICLE:
