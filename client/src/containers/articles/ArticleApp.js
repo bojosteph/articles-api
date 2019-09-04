@@ -33,9 +33,9 @@ const Main = () => (
   <Switch>    
     <Route exact path="/welcome" component={Welcome}/>
     <Route exact path="/articles" component={ArticleList} />
-    <Route exact path="/articles/new" component={ArticleAdd} />
+    <Route exact path="/addArticles" component={ArticleAdd} />
     <Route exact path="/articles/:id" component={ArticleInfo} />
-    <Route exact path="/articles/:id/edit" component={ArticleEdit} />
+    <Route exact path="/articles/:id/edit" component={ArticleEdit} />      
   </Switch>
 );
 
