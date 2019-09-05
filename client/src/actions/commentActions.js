@@ -58,14 +58,15 @@ export const getArticle = (id) => {
   }
 }
 
-export const deleteArticle = (id) => {
+export const deleteComment = (article, id) => {
+  let articleId = article.id;
   return (dispatch) => {
     return axios({ method:'delete', url:`${apiUrl}/${id}.json`, headers: {'Authorization': token}})
     .then(response => {
       dispatch({ type: REMOVE_COMMENT, payload: {id}})
     })
     .then(() => {
-      history.push("/articles")
+      history.push(`/articles/${articleId}`)
     })
     .catch(error => {
       throw(error)

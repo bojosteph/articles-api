@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import  { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getComments } from '../../actions/commentActions';
+import { getComments, deleteComment } from '../../actions/commentActions';     
+
 
 class CommentList extends Component {
   
@@ -10,6 +11,7 @@ class CommentList extends Component {
   }
 
   render() {
+    const article = this.props
     if(this.props.comments.length) {
     return (
       <div>
@@ -19,6 +21,7 @@ class CommentList extends Component {
             <div key={comment.id}>
               <h2><Link to={`/comments/${comment.id}`}></Link></h2>
               {comment.body}
+              <span className="deleteTaskBtn"  style={deleteBtn} onClick={(e) => this.props.deleteComment(article, comment.id)}> X</span>
               <hr/>
             </div>
           )     
@@ -32,11 +35,19 @@ class CommentList extends Component {
   } 
 }
 
+const deleteBtn = {         
+  color: 'red',          
+}
+
+
+
 const mapStateToProps = (state) => ({
    comments: state.comments, 
    article: state.article
   });
 
-export default connect(mapStateToProps, {getComments})(CommentList);
+
+
+export default connect(mapStateToProps, {getComments, deleteComment})(CommentList);
 
 
