@@ -5,8 +5,8 @@ import { getComments } from '../../actions/commentActions';
 
 class CommentList extends Component {
   
-  componentDidMount(){
-    this.props.getComments(this.props.article.id)
+  componentDidMount(){    
+       this.props.getComments(this.props.article.id)
   }
 
   render() {

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getArticle, deleteArticle } from '../../actions/index';
 import CommentList from '../comments/CommentList';
+import CommentAdd from '../comments/CommentAdd';
 
 class ArticleInfo extends Component {
   
@@ -24,6 +25,7 @@ class ArticleInfo extends Component {
           <Link to="/articles" className="btn btn-secondary">Close</Link>
         </div>
         <hr/>
+        <CommentAdd />
         <CommentList />
       </div>
     )

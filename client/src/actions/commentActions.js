@@ -6,7 +6,8 @@ import {
   RECEIVE_COMMENT,
   REMOVE_COMMENT,
   UPDATE_COMMENT,
-  REPLACE_COMMENT
+  REPLACE_COMMENT, 
+  CLEAR_CURRENT
 
 } from './types';
 
@@ -18,7 +19,6 @@ const token = "Bearer " + localStorage.getItem("jwtToken")
 
 
 export const getComments = (articleId) => {
-   debugger
   return (dispatch) => {
     return axios({method: 'get', url: `/api/articles/${articleId}/comments`, headers: {'Authorization': token }})
     .then(response => {
@@ -28,29 +28,29 @@ export const getComments = (articleId) => {
   }
 };
 
-export const addArticle = ({ title, content, user_id }) => {
+export const addComment = ({  body, article_id, user_id }) => {     
   return (dispatch) => {
-    debugger
-    return axios({ method: 'post', url:`${apiUrl}.json`, headers: {'Authorization': token }, data: {title, content, user_id}})
+    return axios({ method: 'post', url:`/api/comments`, headers: {'Authorization': token }, data: {body, user_id, article_id}})
     .then(response => {
       let data = response.data;
       dispatch({
         type: ADD_COMMENT,
-        payload: {id: data.id, title: data.title, content: data.content}
+        payload: {id: data.id, body: data.body}
       })
     })
     .then(() => {
-      history.push("/articles")
+      //  debugger
+      history.push(`/articles/${article_id}`)
     })
     .catch(error => { throw(error)});
-  };
-};
+  }
+}
 
 export const getArticle = (id) => {
   return (dispatch) => {
     return axios({method: 'get', url: `/api/articles/${id}`, headers: {'Authorization': token }})
       .then(response => {
-        dispatch({ type: RECEIVE_COMMENT, payload: response.data });
+        dispatch({ type: RECEIVE_COMMENT, payload: response.data })
       })
       .catch(error => {
         throw(error);
@@ -89,3 +89,9 @@ export const updateArticle = (article) => {
   }
 }
 
+
+export const clearCurrent = () => {
+  return {
+      type: CLEAR_CURRENT
+  }
+}

@@ -1,6 +1,11 @@
 import { RECEIVE_ARTICLE, UPDATE_ARTICLE} from '../actions/types';
 
-export default function articleReducer ( state = {}, action) {
+const initialState = {     
+  user: {},
+  article: {}
+};
+
+export default function articleReducer ( state = initialState, action) {
   switch(action.type) {
     case RECEIVE_ARTICLE:
       return action.payload
