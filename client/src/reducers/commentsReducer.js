@@ -3,7 +3,7 @@ import {
   ADD_COMMENT,
   REMOVE_COMMENT,
   REPLACE_COMMENT, 
-  CLEAR_CURRENT
+  
 } from '../actions/types'
 
 const initialState = { comments: [], user: {}, article: {}}

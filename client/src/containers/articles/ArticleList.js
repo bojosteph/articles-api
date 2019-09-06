@@ -16,11 +16,23 @@ class ArticleList extends Component {
         <h4>Articles</h4>
         {this.props.articles.map((article) => {
           return(
-            <div key={article.id}>
-              <h2><Link to={`/articles/${article.id}`}>{article.title}</Link></h2>
-              {article.content}
-              <hr/>
+
+          <div key={article.id} class="row">
+            <div class="col s12 m7">
+              <div class="card">
+                <div class="card-image">
+                  <img src={article.image_url} />
+                  <span class="card-title"><Link to={`/articles/${article.id}`}>{article.title}</Link></span>
+                </div>
+                <div class="card-content">
+                  <p>{article.description}</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
             </div>
+          </div>                       
           )     
         })}
         

@@ -25,7 +25,9 @@ export default function articlesReducer(state = initialState, action) {
           return {
             ...article,
             title: action.payload.title,
-            content: action.payload.content
+            content: action.payload.content,
+            description: action.payload.description,
+            image_url: action.payload.image_url
           }
         } else {
           return article

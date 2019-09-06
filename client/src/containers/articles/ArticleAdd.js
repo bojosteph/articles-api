@@ -28,8 +28,18 @@ class ArticleAdd extends Component {
           </div>
           <div className="form-group">
             <label>Content</label>
-            <textarea name="content" rows="5" value={this.state.content} onChange={this.handleChange} 
+            <textarea  name="content" rows="5" cols="40" value={this.state.content} onChange={this.handleChange} 
             className="form-control" placeholder="Content"  required />
+          </div>
+          <div className="form-group">
+            <label>Description</label>
+            <input type="text" name="description" value={this.state.description} onChange={this.handleChange}
+             className="form-control"  placeholder="Description" required />
+          </div>
+          <div className="form-group">
+            <label>Image</label>
+            <input type="text" name="image_url" value={this.state.image_url} onChange={this.handleChange}
+             className="form-control"  placeholder="Image Url" required />
           </div>
           <div className="btn-group">
             <button type="submit" className="btn btn-dark">Create</button>
