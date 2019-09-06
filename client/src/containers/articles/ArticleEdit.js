@@ -29,11 +29,11 @@ class ArticleEdit extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Title</label>
-            <input type="text" name="title" defaultValue={this.props.article.title} onChange={this.handleChange} className="form-control" />
+            <input type="text" name="title" defaultValue={this.props.article.title} onChange={this.handleChange} className="form-control" required />
           </div>
           <div className="form-group">
             <label>Content</label>
-            <textarea name="content" rows="5" defaultValue={this.props.article.content} onChange={this.handleChange} className="form-control" />
+            <textarea name="content" rows="5" defaultValue={this.props.article.content} onChange={this.handleChange} className="form-control" required />
           </div>
           <div className="btn-group">
             <button type="submit" className="btn btn-dark">Update</button>

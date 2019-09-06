@@ -25,7 +25,7 @@ class CommentAdd extends Component {
           <div className="form-group">
             <label>Body</label>
             <textarea name="body" rows="5" value={this.state.body} onChange={this.handleChange} 
-            className="form-control" placeholder="Body" />
+            className="form-control" placeholder="Body"  required />
           </div>
           <div className="btn-group">
             <button type="submit" className="btn btn-dark">Create</button>

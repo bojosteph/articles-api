@@ -11,10 +11,9 @@ const initialState = { comments: [], user: {}, article: {}}
 export default function commentsReducer(state = initialState, action) {
   switch(action.type) { 
     case RECEIVE_COMMENTS:
-      return action.payload          
+      return action.payload
     case ADD_COMMENT:
       return [action.payload, ...state]
-
     case REMOVE_COMMENT:
       return state.filter(comment => comment.id !== action.payload.id);
     case REPLACE_COMMENT:
@@ -28,11 +27,6 @@ export default function commentsReducer(state = initialState, action) {
           return comment
         }
       })
-    case CLEAR_CURRENT:
-      return {
-        ...state,
-        body: ''
-      }
     default:
       return state;
   }

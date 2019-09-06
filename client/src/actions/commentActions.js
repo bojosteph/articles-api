@@ -35,7 +35,7 @@ export const addComment = ({  body, article_id, user_id }) => {
       let data = response.data;
       dispatch({
         type: ADD_COMMENT,
-        payload: {id: data.id, body: data.body}
+        payload: {id: data.id, body: data.body, article_id: article_id}
       })
     })
     .then(() => {
