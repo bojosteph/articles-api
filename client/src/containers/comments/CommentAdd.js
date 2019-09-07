@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addComment } from '../../actions/commentActions';
+import TextArea from '../../components/forms/TextArea';
+import Button from '../../components/buttons/Button';
 
 class CommentAdd extends Component {
   state = { body: '', article_id: '', user_id: '' };     
@@ -21,20 +23,31 @@ class CommentAdd extends Component {
     return (
       <div>
         <h4>Add Comment </h4>
-        <form onSubmit={this.handleSubmit}>             
-          <div className="form-group">
-            <label>Body</label>
-            <textarea name="body" rows="5" value={this.state.body} onChange={this.handleChange} 
-            className="form-control" placeholder="Body"  required />
-          </div>
-          <div className="btn-group">
-            <button type="submit" className="btn btn-dark">Create</button>
-          </div>
+        <form onSubmit={this.handleSubmit}> 
+        <TextArea 
+           title={"Body"}
+           rows={10}
+           value={this.state.body}
+           name={"body"}
+           handleChange={this.handleChange}
+           placeholder={"Body"}
+          />
         </form>
+        <Button
+          action={this.handleSubmit}
+          type={"primary"}
+          title={"Submit"}
+          style={buttonStyle}
+          />
       </div>
+     
     );
   }
 }
+
+const buttonStyle = {
+  margin: "10px 10px 10px 10px"
+};
 
 const mapStateToProps = state => ({
   article: state.article,
