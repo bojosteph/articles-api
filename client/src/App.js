@@ -9,8 +9,8 @@ import store from "./store";
 
 
 import Landing from "./components/layout/Landing";
-import Register from "./containers/auth/Register";
-import Login from "./containers/auth/Login";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
 import PrivateRoute from "./containers/private-route/PrivateRoute";
 import Dashboard from "./containers/dashboard/Dashboard";
 

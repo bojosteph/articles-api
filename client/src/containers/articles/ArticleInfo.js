@@ -14,10 +14,10 @@ class ArticleInfo extends Component {
   
 
   render() {
-    const article = this.props.article;
+    const { article, deleteArticle } = this.props;
     return (
     <Fragment>
-      <ArticleShow article={article} />   
+      <ArticleShow article={article} deleteArticle={deleteArticle} />   
         <div className="col s6">
 
               <CommentAdd />

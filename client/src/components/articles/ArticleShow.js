@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const ArticleShow = ({article}) => {
+const ArticleShow = ({article, deleteArticle}) => {
   return (
     <div class="col s6">
     <div class="card-panel hoverable">
@@ -14,7 +14,7 @@ const ArticleShow = ({article}) => {
         <p>{article.description}</p>
         <div className="btn-group">
           <Link to={{ pathname: `/articles/${article.id}/edit`, state: { article: article }}} className="btn btn-info">Edit</Link> 
-          <button onClick={() => this.props.deleteArticle(article.id)} className="btn btn-danger" type="button">Delete</button> 
+          <button onClick={() => deleteArticle(article.id)} className="btn btn-danger" type="button">Delete</button> 
           <Link to="/articles" className="btn btn-secondary">Close</Link>
         </div>
       </div>
@@ -27,6 +27,10 @@ const ArticleShow = ({article}) => {
    </div>
    </div>
   )
+}
+
+ArticleShow.defaultProps = {
+  image_url: 'https://media.giphy.com/media/13gvXfEVlxQjDO/giphy.gif'
 }
 
 export default ArticleShow
