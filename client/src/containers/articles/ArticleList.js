@@ -12,27 +12,28 @@ class ArticleList extends Component {
   render() {
     if(this.props.articles.length) {
     return (
-      <div>
+      <div >
         <h4>Articles</h4>
         {this.props.articles.map((article) => {
           return(
-
-          <div key={article.id} class="row">
-            <div class="col s12 m7">
-              <div class="card">
-                <div class="card-image">
-                  <img src={article.image_url} />
-                  <span class="card-title"><Link to={`/articles/${article.id}`}>{article.title}</Link></span>
-                </div>
-                <div class="card-content">
-                  <p>{article.description}</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">This is a link</a>
-                </div>
-              </div>
+            <div key={article.id} class="col s12 m6 l3">
+              <div class="card-panel hoverable">
+                <div key={article.id} class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src={article.image_url} />
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{article.title}<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#"><Link to={`/articles/${article.id}`}>{article.title}</Link></a></p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{article.title}<i class="material-icons right">close</i></span>
+                    <p>{article.description}</p>
+                  </div>
+              </div> 
             </div>
-          </div>                       
+        </div>                                       
+       
           )     
         })}
         
@@ -43,6 +44,7 @@ class ArticleList extends Component {
       }
   } 
 }
+
 
 const mapStateToProps = (state) => ({ articles: state.articles });
 

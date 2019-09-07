@@ -20,8 +20,8 @@ class ArticleApp extends Component {
   render() {
     return (
       <Router history={history}>
-        <div className="container">
-          <Navbar />
+        <div className="row">
+          <Navbar />   
           <Main />
         </div>
       </Router>

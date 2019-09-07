@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getArticle, deleteArticle } from '../../actions/index';
@@ -16,9 +16,12 @@ class ArticleInfo extends Component {
   render() {
     const article = this.props.article;
     return (
+    <Fragment>
+    <div class="col s6">
+    <div class="card-panel hoverable">
       <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src={article.image_url} />
+        <img class="responsive-img" src={article.image_url} />
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">{article.id} : {article.title}<i class="material-icons right">more_vert</i></span>
@@ -33,13 +36,20 @@ class ArticleInfo extends Component {
         <span class="card-title grey-text text-darken-4">{article.title}<i class="material-icons right">close</i></span>
         <p>{article.content}</p>
       </div>
-      <hr/>
+      <hr/>          
+    </div>
+   </div>
+   </div>
+
+
+  <div className="col s6">
+
         <CommentAdd />
         <CommentList />
-
-       <br/>
-    </div>     
-
+  </div>
+      <br />
+      <br />
+    </Fragment>
       
     )
   }

@@ -14,7 +14,9 @@ class ArticleEdit extends Component {
     const id = this.props.article.id
     const title = this.state.title ? this.state.title : this.props.article.title;
     const content = this.state.content ? this.state.content : this.props.article.content;
-    const article = { id: id, title: title, content: content}
+    const description = this.state.description ? this.state.description : this.props.article.description;
+    const image_url = this.state.image_url ? this.state.image_url : this.props.article.image_url
+    const article = { id: id, title: title, content: content, description: description, image_url: image_url}
     this.props.updateArticle(article);
   }
 
