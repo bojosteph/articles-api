@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { getArticle, deleteArticle } from '../../actions/index';
 import CommentList from '../comments/CommentList';
 import CommentAdd from '../comments/CommentAdd';
+import ArticleShow from '../../components/articles/ArticleShow';
 
 class ArticleInfo extends Component {
   
@@ -17,38 +17,12 @@ class ArticleInfo extends Component {
     const article = this.props.article;
     return (
     <Fragment>
-    <div class="col s6">
-    <div class="card-panel hoverable">
-      <div class="card">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="responsive-img" src={article.image_url} />
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">{article.id} : {article.title}<i class="material-icons right">more_vert</i></span>
-        <p><a href="#">{article.description}</a></p>
-        <div className="btn-group">
-          <Link to={{ pathname: `/articles/${article.id}/edit`, state: { article: article }}} className="btn btn-info">Edit</Link> 
-          <button onClick={() => this.props.deleteArticle(article.id)} className="btn btn-danger" type="button">Delete</button> 
-          <Link to="/articles" className="btn btn-secondary">Close</Link>
-        </div>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">{article.title}<i class="material-icons right">close</i></span>
-        <p>{article.content}</p>
-      </div>
-      <hr/>          
-    </div>
-   </div>
-   </div>
+      <ArticleShow article={article} />   
+        <div className="col s6">
 
-
-  <div className="col s6">
-
-        <CommentAdd />
-        <CommentList />
-  </div>
-      <br />
-      <br />
+              <CommentAdd />
+              <CommentList />
+        </div>         
     </Fragment>
       
     )

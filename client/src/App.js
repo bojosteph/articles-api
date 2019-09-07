@@ -12,7 +12,7 @@ import Landing from "./components/layout/Landing";
 import Register from "./containers/auth/Register";
 import Login from "./containers/auth/Login";
 import PrivateRoute from "./containers/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard";
+import Dashboard from "./containers/dashboard/Dashboard";
 
 import "./App.css";
 

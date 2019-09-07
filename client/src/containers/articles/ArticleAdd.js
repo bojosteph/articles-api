@@ -60,16 +60,5 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = { addArticle };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleAdd);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleAdd);  
 
-
-
-// handleSubmit(event) {
-//   event.preventDefault();
-//   let token = "Bearer " + localStorage.getItem("jwt")
-//   axios({ method: 'post', url: '/api/articles', headers: {'Authorization': token }, data: this.state})
-//     .then((response) => {
-//       this.props.history.push(`/articles/${response.data.id}`);
-//     })
-//     .catch(error => console.log('error', error));
-// }
