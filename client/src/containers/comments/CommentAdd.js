@@ -5,21 +5,58 @@ import TextArea from '../../components/forms/TextArea';
 import Button from '../../components/buttons/Button';
 
 class CommentAdd extends Component {
-  state = { body: '', article_id: '', user_id: '' };     
+  constructor() {
+    super()
+    this.state = {
+       body: '',
+       article_id: '', 
+       user_id: '',          
+       errors: {}
 
-  handleChange = (event) => {
+       };     
+  }
+
+  handleChange = (event) => {        
     this.setState({ [event.target.name]: event.target.value });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
     let article = {body: this.state.body, article_id: this.props.article.id, user_id: this.props.auth.user_id }
-    this.props.addComment(article)
+    if(this.handleValidation()) {
+       this.props.addComment(article)   
+    } else {
+      alert("Form has errors")
+    }         
+  }
+
+  handleValidation() {
+    let body = this.state.body;
+    let  errors = {};
+    let formIsValid = true;
+
+    if(body == '') {
+      formIsValid = false;
+      errors["body"] = "Cannot be empty";
+    }
+    this.setState({errors: errors});
+    return formIsValid;
+  }
+
+
+
+  handleClearForm = (event) => {
+    event.preventDefault();
+    this.setState({
+      body: '',
+      article_id: '',
+      user_id: ''
+    })
   }
 
  
   render() {
-    
+   
     return (
       <div>
         <h4>Add Comment </h4>
@@ -30,20 +67,30 @@ class CommentAdd extends Component {
            value={this.state.body}
            name={"body"}
            handleChange={this.handleChange}
-           placeholder={"Body"}
+           placeholder={"Enter Comment"}
+           required={true}
           />
+           <span style={{color: "red"}}>{this.state.errors["body"]}</span>
         </form>
         <Button
           action={this.handleSubmit}
           type={"primary"}
           title={"Submit"}
           style={buttonStyle}
-          />
+          
+          />{" "}
+        <Button
+          action={this.handleClearForm}
+          type={"secondary"}
+          title={"Clear"}
+          style={buttonStyle}
+          />{" "}
       </div>
      
     );
   }
 }
+
 
 const buttonStyle = {
   margin: "10px 10px 10px 10px"

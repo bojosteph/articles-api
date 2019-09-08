@@ -12,6 +12,7 @@ const TextArea = (props) => {
         value={props.value}
         onChange={props.handleChange}
         placeholder={props.placeholder}
+        required={props.true}
         />         
     </div>
   )
