@@ -38,15 +38,15 @@ export const addComment = ({  body, article_id, user_id }) => {
         payload: {id: data.id, body: data.body, article_id: article_id}
       })
     })
-    .then(() => {
-      //  debugger
-      history.push(`/articles/${article_id}`)
-    })
+    // .then(() => {
+    //   //  debugger
+    //   history.push(`/articles/${article_id}`)
+    // })
     .catch(error => { throw(error)});
   }
 }
 
-export const getArticle = (id) => {
+export const getComment = (id) => {
   return (dispatch) => {
     return axios({method: 'get', url: `/api/articles/${id}`, headers: {'Authorization': token }})
       .then(response => {
@@ -65,16 +65,16 @@ export const deleteComment = (article, id) => {
     .then(response => {
       dispatch({ type: REMOVE_COMMENT, payload: {id}})
     })
-    .then(() => {
-      history.push(`/articles/${articleId}`)
-    })
+    // .then(() => {
+    //   history.push(`/articles/${articleId}`)
+    // })
     .catch(error => {
       throw(error)
     })
   }
 }
 
-export const updateArticle = (article) => {
+export const updateComment = (article) => {
   const articleId = article.id;
   return (dispatch) => {
     return axios({ method:'patch', url:`${apiUrl}/${article.id}.json`, headers: {'Authorization': token }, data: {title: article.title, content: article.content}})
@@ -83,9 +83,9 @@ export const updateArticle = (article) => {
         dispatch({ type: UPDATE_COMMENT, payload: {id: data.id, title: data.title, content: data.content}})
         dispatch({ type: REPLACE_COMMENT, payload: {id: data.id, title: data.title, content: data.content}})
       })
-      .then(() => {
-        history.push(`/articles/${articleId}`)
-      })
+      // .then(() => {
+      //   history.push(`/articles/${articleId}`)
+      // })
       .catch(error => { throw(error)});
   }
 }

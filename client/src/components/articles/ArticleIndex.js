@@ -7,7 +7,7 @@ const ArticleIndex = ({article}) => {
               <div class="card-panel hoverable">
                 <div key={article.id} class="card">
                   <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src={article.image_url} />
+                    <img class="activator" src={article.image_url} alt=""/>
                   </div>
                   <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{article.title}<i class="material-icons right">more_vert</i></span>

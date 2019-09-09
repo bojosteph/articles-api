@@ -7,7 +7,7 @@ const ArticleShow = ({article, deleteArticle}) => {
     <div class="card-panel hoverable">
       <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <img class="responsive-img" src={article.image_url} />
+        <img class="responsive-img" src={article.image_url} alt={article.title} />
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">{article.id} : {article.title}<i class="material-icons right">more_vert</i></span>
