@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux';
 import authReducer from './authReducer';
 import errorReducer from './errorReducer';
-import articles from './articlesReducer';
-import article from './articleReducer';
+import articlesReducer from './articlesReducer';
+import articleReducer from './articleReducer';
+import commentsReducer from './commentsReducer';
+
 
 export default combineReducers({
   auth: authReducer,
   errors: errorReducer,
-  articles: articles,
-  article: article
+  articles: articlesReducer,
+  article: articleReducer,
+  comments: commentsReducer,
 })

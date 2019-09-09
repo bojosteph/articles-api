@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { getArticle, deleteArticle } from '../../actions/index';
+import CommentList from '../comments/CommentList';
+import CommentAdd from '../comments/CommentAdd';
+import ArticleShow from '../../components/articles/ArticleShow';
 
 class ArticleInfo extends Component {
   
@@ -12,18 +14,17 @@ class ArticleInfo extends Component {
   
 
   render() {
-    const article = this.props.article;
+    const { article, deleteArticle } = this.props;
     return (
-      <div>
-        <h2>{article.id}: {article.title}</h2>
-        <p>{article.content}</p>
-        <div className="btn-group">
-          <Link to={{ pathname: `/articles/${article.id}/edit`, state: { article: article }}} className="btn btn-info">Edit</Link> 
-          <button onClick={() => this.props.deleteArticle(article.id)} className="btn btn-danger" type="button">Delete</button> 
-          <Link to="/articles" className="btn btn-secondary">Close</Link>
-        </div>
-        <hr/>
-      </div>
+    <Fragment>
+      <ArticleShow article={article} deleteArticle={deleteArticle} />   
+        <div className="col s6">
+
+              <CommentAdd />
+              <CommentList />
+        </div>         
+    </Fragment>
+      
     )
   }
 }

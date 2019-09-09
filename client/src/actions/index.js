@@ -28,15 +28,15 @@ export const getArticles = () => {
   }
 };
 
-export const addArticle = ({ title, content, user_id }) => {
+export const addArticle = ({ title, content, description, image_url, user_id }) => {
   return (dispatch) => {
-    debugger
-    return axios({ method: 'post', url:`${apiUrl}.json`, headers: {'Authorization': token }, data: {title, content, user_id}})
+    // debugger
+    return axios({ method: 'post', url:`${apiUrl}.json`, headers: {'Authorization': token }, data: {title, content, description, image_url, user_id}})
     .then(response => {
       let data = response.data;
       dispatch({
         type: ADD_ARTICLE,
-        payload: {id: data.id, title: data.title, content: data.content}
+        payload: {id: data.id, title: data.title, content: data.content, description: data.description, image_url: data.image_url}
       })
     })
     .then(() => {
@@ -76,11 +76,11 @@ export const deleteArticle = (id) => {
 export const updateArticle = (article) => {
   const articleId = article.id;
   return (dispatch) => {
-    return axios({ method:'patch', url:`${apiUrl}/${article.id}.json`, headers: {'Authorization': token }, data: {title: article.title, content: article.content}})
+    return axios({ method:'patch', url:`${apiUrl}/${article.id}.json`, headers: {'Authorization': token }, data: {title: article.title, content: article.content, description: article.description, image_url: article.image_url}})
       .then(response => {
         const data = response.data;
-        dispatch({ type: UPDATE_ARTICLE, payload: {id: data.id, title: data.title, content: data.content}})
-        dispatch({ type: REPLACE_ARTICLE, payload: {id: data.id, title: data.title, content: data.content}})
+        dispatch({ type: UPDATE_ARTICLE, payload: {id: data.id, title: data.title, content: data.content, description: data.description, image_url: data.image_url}})
+        dispatch({ type: REPLACE_ARTICLE, payload: {id: data.id, title: data.title, content: data.content, description: data.description, image_url: data.image_url}})
       })
       .then(() => {
         history.push(`/articles/${articleId}`)

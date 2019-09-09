@@ -12,8 +12,11 @@ export default function articlesReducer(state = initialState, action) {
     case RECEIVE_ARTICLES:
       return action.payload;
     case ADD_ARTICLE:
-      if (state.user)
-      return [action.payload];
+      if (state.user) {
+        return action.payload;    
+      } else {
+        return state;
+      }
     case REMOVE_ARTICLE:
       return state.filter(article => article.id !== action.payload.id);
     case REPLACE_ARTICLE:
@@ -22,7 +25,9 @@ export default function articlesReducer(state = initialState, action) {
           return {
             ...article,
             title: action.payload.title,
-            content: action.payload.content
+            content: action.payload.content,
+            description: action.payload.description,
+            image_url: action.payload.image_url
           }
         } else {
           return article

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :articles, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
     validates :email, presence: true
     validates :email, uniqueness: true
@@ -10,7 +11,8 @@ class User < ApplicationRecord
     def to_token_payload
       {
           sub: id,
-          email: email
+          email: email,
+          name: name,
       }
   end  
 end

@@ -14,7 +14,9 @@ class ArticleEdit extends Component {
     const id = this.props.article.id
     const title = this.state.title ? this.state.title : this.props.article.title;
     const content = this.state.content ? this.state.content : this.props.article.content;
-    const article = { id: id, title: title, content: content}
+    const description = this.state.description ? this.state.description : this.props.article.description;
+    const image_url = this.state.image_url ? this.state.image_url : this.props.article.image_url
+    const article = { id: id, title: title, content: content, description: description, image_url: image_url}
     this.props.updateArticle(article);
   }
 
@@ -25,22 +27,36 @@ class ArticleEdit extends Component {
   render() {
     return (
       <div>
-        <h1>Edit {this.props.article.title}</h1>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label>Title</label>
-            <input type="text" name="title" defaultValue={this.props.article.title} onChange={this.handleChange} className="form-control" />
-          </div>
-          <div className="form-group">
-            <label>Content</label>
-            <textarea name="content" rows="5" defaultValue={this.props.article.content} onChange={this.handleChange} className="form-control" />
-          </div>
-          <div className="btn-group">
+       <h1>Edit {this.props.article.title}</h1>
+    <div class="row">
+      <form  class="col s12" onSubmit={this.handleSubmit}>
+        <div class="input-field col s12">
+          
+          <input type="text" name="title"  defaultValue={this.props.article.title} onChange={this.handleChange}
+           class="materialize-textarea"  required />
+        </div>
+        <div class="input-field col s12">
+          
+          <textarea  name="content"  class="materialize-textarea" defaultValue={this.props.article.content} onChange={this.handleChange} 
+             required />
+        </div>
+        <div class="input-field col s12">
+          
+          <input type="text" name="description" defaultValue={this.props.article.description} onChange={this.handleChange}
+           class="materialize-textarea"   required />
+        </div>
+        <div class="input-field col s12">
+          
+          <input type="text" name="image_url" defaultValue={this.props.article.image_url} onChange={this.handleChange}
+          class="materialize-textarea"  required />
+        </div>
+        <div className="btn-group">
             <button type="submit" className="btn btn-dark">Update</button>
             <button type="button" onClick={this.handleCancel} className="btn btn-secondary">Cancel</button>
           </div>
-        </form>
-      </div>
+      </form>
+     </div>
+    </div>              
     )
   }
 }

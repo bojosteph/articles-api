@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import ArticleApp from '../../containers/articles/ArticleApp';
+import ArticleApp from '../articles/ArticleApp';
 
 
 class Dashboard extends Component {
