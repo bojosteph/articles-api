@@ -12,21 +12,20 @@ class CommentList extends Component {
   // }    
 
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
-    if (this.props.article.id !== prevProps.article.id) {
+      if (this.props.article.id !== prevProps.article.id) {
       this.props.getComments(this.props.article.id)
     }
   }
 
   render() {
-    const { article, deleteComment } = this.props
+    const { article, deleteComment, auth } = this.props
     if(this.props.comments.length) {
     return (
       <div>
         <h4>Comments</h4>
         {this.props.comments.map((comment) => {
           return(
-            <CommentsIndex  article={article} deleteComment={deleteComment} comment={comment} />
+            <CommentsIndex  article={article} deleteComment={deleteComment} comment={comment} auth={auth} />
           )     
         })}
         
@@ -42,7 +41,9 @@ class CommentList extends Component {
 
 const mapStateToProps = (state) => ({
    comments: state.comments, 
-   article: state.article
+   article: state.article,
+   auth: state.auth,   
+  
   });
 
 

@@ -28,20 +28,20 @@ export const getComments = (articleId) => {
   }
 };
 
-export const addComment = ({  body, article_id, user_id }) => {     
+export const addComment = ({  body, article_id, user_id, email }) => {     
   return (dispatch) => {
     return axios({ method: 'post', url:`/api/comments`, headers: {'Authorization': token }, data: {body, user_id, article_id}})
     .then(response => {
       let data = response.data;
       dispatch({
         type: ADD_COMMENT,
-        payload: {id: data.id, body: data.body, article_id: article_id}
+        payload: {id: data.id, body: data.body, article_id: article_id, user_id: user_id, email: email}
       })
     })
-    // .then(() => {
-    //   //  debugger
-    //   history.push(`/articles/${article_id}`)
-    // })
+    .then(() => {
+      //  debugger
+      history.push(`/articles/${article_id}`)
+    })
     .catch(error => { throw(error)});
   }
 }
@@ -65,9 +65,9 @@ export const deleteComment = (article, id) => {
     .then(response => {
       dispatch({ type: REMOVE_COMMENT, payload: {id}})
     })
-    // .then(() => {
-    //   history.push(`/articles/${articleId}`)
-    // })
+    .then(() => {
+      history.push(`/articles/${articleId}`)
+    })
     .catch(error => {
       throw(error)
     })

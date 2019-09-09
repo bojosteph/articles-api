@@ -10,7 +10,8 @@ class CommentAdd extends Component {
     this.state = {
        body: '',
        article_id: '', 
-       user_id: '',          
+       user_id: '', 
+       email: '',        
        errors: {}
 
        };     
@@ -22,7 +23,7 @@ class CommentAdd extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    let article = {body: this.state.body, article_id: this.props.article.id, user_id: this.props.auth.user_id }
+    let article = {body: this.state.body, article_id: this.props.article.id, user_id: this.props.auth.user_id, email: this.props.auth.user.email}
     if(this.handleValidation()) {
        this.props.addComment(article)   
     } else {
@@ -50,7 +51,8 @@ class CommentAdd extends Component {
     this.setState({
       body: '',
       article_id: '',
-      user_id: ''
+      user_id: '',
+      email: ''
     })
   }
 

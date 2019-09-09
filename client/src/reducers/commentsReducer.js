@@ -6,7 +6,7 @@ import {
   
 } from '../actions/types'
 
-const initialState = { comments: [], user: {}, article: {}}
+const initialState = { comments: [], user: {}, article: {}, email: ''}
 
 export default function commentsReducer(state = initialState, action) {
   switch(action.type) { 

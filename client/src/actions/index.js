@@ -30,7 +30,7 @@ export const getArticles = () => {
 
 export const addArticle = ({ title, content, description, image_url, user_id }) => {
   return (dispatch) => {
-    debugger
+    // debugger
     return axios({ method: 'post', url:`${apiUrl}.json`, headers: {'Authorization': token }, data: {title, content, description, image_url, user_id}})
     .then(response => {
       let data = response.data;
