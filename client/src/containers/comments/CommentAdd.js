@@ -36,7 +36,7 @@ class CommentAdd extends Component {
     let  errors = {};
     let formIsValid = true;
 
-    if(body == '') {
+    if(body === '') {
       formIsValid = false;
       errors["body"] = "Cannot be empty";
     }

@@ -83,9 +83,9 @@ export const updateComment = (article) => {
         dispatch({ type: UPDATE_COMMENT, payload: {id: data.id, title: data.title, content: data.content}})
         dispatch({ type: REPLACE_COMMENT, payload: {id: data.id, title: data.title, content: data.content}})
       })
-      // .then(() => {
-      //   history.push(`/articles/${articleId}`)
-      // })
+      .then(() => {
+        history.push(`/articles/${articleId}`)
+      })
       .catch(error => { throw(error)});
   }
 }

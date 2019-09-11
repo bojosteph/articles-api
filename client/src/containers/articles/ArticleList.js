@@ -6,6 +6,7 @@ import ArticleIndex from '../../components/articles/ArticleIndex';
 class ArticleList extends Component {
   
   componentDidMount(){
+    console.log('Child did mount.');
     this.props.getArticles()
   }
 
