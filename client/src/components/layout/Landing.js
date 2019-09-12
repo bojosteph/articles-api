@@ -8,14 +8,14 @@ export class Landing extends Component {
         <div className="row">
           <div className="col s12 center-align">
             <h4>
-              <b>Build</b> your own articles with{" "}
-              <span style={{ fontFamily: "monospace" }}>RAILS REACT REDUX</span> app
+              <b>Articles</b>{" "}a{" "}
+              <span style={{ fontFamily: "monospace" }}>RAILS REACT</span> app
               
             </h4>
             <p className="flow-text grey-text text-darken-1">
-              This is  a  full-stack app with user authentication via
-               knock gem
+              This is  a  full-stack app with user authentication                  
             </p>
+            <p>You can create articles and add image or GIFs</p>
             <br />
             <div className="col s6">
               <Link

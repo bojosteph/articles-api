@@ -55,3 +55,5 @@ gem 'rails_12factor', group: :production
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "dotenv-rails", "~> 2.7"
+
+gem "foreman", "~> 0.63.0"
