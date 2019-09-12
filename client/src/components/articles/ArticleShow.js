@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 const ArticleShow = ({article, deleteArticle}) => {
   return (
-    <div class="col s6">
-    <div class="card-panel hoverable">
-      <div class="card">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="responsive-img" src={article.image_url} alt={article.title} />
+    <div className="col s6">
+    <div className="card-panel hoverable">
+      <div className="card">
+      <div className="card-image waves-effect waves-block waves-light">
+        <img className="responsive-img" src={article.image_url} alt={article.title} />
       </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">{article.id} : {article.title}<i class="material-icons right">more_vert</i></span>
+      <div className="card-content">
+        <span className="card-title activator grey-text text-darken-4">{article.id} : {article.title}<i className="material-icons right">more_vert</i></span>
         <p>{article.description}</p>
         <div className="btn-group">
           <Link to={{ pathname: `/articles/${article.id}/edit`, state: { article: article }}} className="btn btn-info">Edit</Link> 
@@ -18,8 +18,8 @@ const ArticleShow = ({article, deleteArticle}) => {
           <Link to="/articles" className="btn btn-secondary">Close</Link>
         </div>
       </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">{article.title}<i class="material-icons right">close</i></span>
+      <div className="card-reveal">
+        <span className="card-title grey-text text-darken-4">{article.title}<i className="material-icons right">close</i></span>
         <p>{article.content}</p>
       </div>
       <hr/>          

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import authReducer from '../../reducers/authReducer';
+// import authReducer from '../../reducers/authReducer';
 
 const CommentsIndex = ({article, comment, deleteComment, auth}) => {
   return (

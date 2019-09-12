@@ -1,7 +1,7 @@
 Article.destroy_all
 User.destroy_all
 
-user1 = User.create(name: 'Rob Test', email: 'rob@test.com', password: '123456')
+user1 = User.create(name: 'Rob Test', email: 'rob@test.com', password: '123456', password_confirmation: '123456')
 
 journey = Article.create!(
   title: 'Chuck Norris Ipsum',

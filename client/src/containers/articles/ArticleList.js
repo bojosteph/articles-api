@@ -17,7 +17,7 @@ class ArticleList extends Component {
         <h4>Articles</h4>
         {this.props.articles.map((article) => {
           return(
-             <ArticleIndex article={article} />             
+             <ArticleIndex key={article.id} article={article} />             
            )     
         })}
         
