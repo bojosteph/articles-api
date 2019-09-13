@@ -2,10 +2,17 @@ import {
   RECEIVE_ARTICLES,
   ADD_ARTICLE,
   REMOVE_ARTICLE,
-  REPLACE_ARTICLE
+  REPLACE_ARTICLE,
+  SEARCH_DATA
 } from '../actions/types'
 
-const initialState = { articles: [], user: {} }
+const _ = require('lodash')
+
+const initialState = { 
+  articles: [],
+  user: {} ,
+  filtered: []
+  }
 
 export default function articlesReducer(state = initialState, action) {
   switch(action.type) { 
@@ -33,6 +40,9 @@ export default function articlesReducer(state = initialState, action) {
           return article
         }
       })
+    case SEARCH_DATA:
+      const filtered = _.filter(state.articles, (o) => _.toLower(o.article).includes(_.toLower(action.payload)))
+      return {...state, filtered}
     default:
       return state;
   }
