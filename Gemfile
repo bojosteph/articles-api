@@ -16,7 +16,6 @@ gem 'puma', '~> 3.11'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers'
-gem 'will_paginate'
 gem 'knock'
 
 # Use ActiveStorage variant
@@ -43,11 +42,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rubocop'
   gem "travis", "~> 1.8"
-  gem "codeclimate-test-reporter", "~> 1.0"
-  gem "simplecov", "~> 0.13.0"
-  gem "simplecov-console", "~> 0.4.2"
 end
 gem 'rails_12factor', group: :production
 
@@ -56,4 +51,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "dotenv-rails", "~> 2.7"
 
-gem "foreman", "~> 0.63.0"
