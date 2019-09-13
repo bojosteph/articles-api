@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from "react-dom";
 import { Parallax } from "react-parallax"
 import { Link } from 'react-router-dom';
 
@@ -85,7 +84,7 @@ export class Landing extends Component {
       </div>
       <Parallax bgImage={image2} strength={-100}>
         <div style={{ height: 500 }}>
-          <div style={insideStyles}>Be Kind</div>
+        
         </div>
       </Parallax>
       <h5 class="grey-text text-darken-3 lighten-3">Push yourself, because no one else is going to do it for you.</h5>
