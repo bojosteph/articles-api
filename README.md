@@ -4,19 +4,28 @@ This is A full stack application using Rails backend with React and Redux fronte
 
 :
 
-* Ruby version
-
+* Ruby version 
+   ruby 2.6.3
 * System dependencies
 
-* Configuration
+* Installation
+  git clone
+  cd to application
+  run bundle install
+  cd to client 
+  run npm install
+  cd ..
+  run rake start to start app  
 
 * Database creation
+   run rake:db create and rake db:migrate
+   run rake db:seed
 
 * Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+
+
 
 * Deployment instructions
 
